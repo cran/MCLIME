@@ -41,19 +41,19 @@ m.clime <- function( x, y,
     }
   }
                       
-  danziger.obj <- danziger( x, y, 
+  dantzig.obj <- dantzig( x, y, 
                     lambda = lambda,  
                     logspaced = logspaced.lambda,
                     linsolver = lpfun.Gamma, 
                     pdtol = 1e-3, pdmaxiter = 50)                 
     
-  Gammalist <- danziger.obj$Gammalist     
+  Gammalist <- dantzig.obj$Gammalist     
   
   Omegalist <- NULL              
   for (k in 1:nlambda){ 
-    dan.obj <- danziger.obj                  
+    dan.obj <- dantzig.obj                  
     dan.obj$lambda <- lambda[k]
-    dan.obj$Gammalist <- list(danziger.obj$Gammalist[[k]])  
+    dan.obj$Gammalist <- list(dantzig.obj$Gammalist[[k]])  
     meanclime.obj <- meanclime( dan.obj, 
                        tau = tau, 
                        perturb = perturb,

@@ -1,4 +1,4 @@
-meanclime<- function(danziger.obj, 
+meanclime<- function(dantzig.obj, 
                   tau=NULL, 
                   ntau=ifelse(is.null(tau),100,length(tau)),
                   tau.max=0.8,
@@ -10,13 +10,13 @@ meanclime<- function(danziger.obj,
                   )
 {
   lpfun <- match.arg(linsolver.Omega, c("primaldual", "simplex"))
-  lambda <- danziger.obj$lambda[1]
+  lambda <- dantzig.obj$lambda[1]
     
-  x <- danziger.obj$x
-  y <- danziger.obj$y
-  Gammalist <- danziger.obj$Gammalist
+  x <- dantzig.obj$x
+  y <- dantzig.obj$y
+  Gammalist <- dantzig.obj$Gammalist
   if( length(Gammalist)>1 ){
-    warning("Too many Gammas in the Gammalist of danziger.obj. Only the first one is used.")
+    warning("Too many Gammas in the Gammalist of dantzig.obj. Only the first one is used.")
   }
   Gamma <- Gammalist[[1]]
   re <- y - x%*%Gamma
@@ -79,7 +79,7 @@ meanclime<- function(danziger.obj,
 
   outlist <- list(Gamma=Gamma, Omegalist=Omegalist, x = x, y = y, lambda = lambda, 
                   tau = tau, perturb=perturb, 
-                  lpfun.Gamma=danziger.obj$lpfun, lpfun.Omega=lpfun)
+                  lpfun.Gamma=dantzig.obj$lpfun, lpfun.Omega=lpfun)
   class(outlist) <- c("meanclime")
   return(outlist)
 }

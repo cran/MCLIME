@@ -6,10 +6,18 @@
   Solve for a series of the regression coefficients matrix estimates and inverse covariance matrix estimates at a grid of
   values of the constraint lambda and tau.
 }
-\usage{ m.clime( x, y, lambda = NULL, nlambda = ifelse(is.null(lambda),10,length(lambda)), lambda.max = max(cov(x)*(1-1/nrow(x)))*max(cov(y)*(1-1/nrow(y)))*sqrt(4*log(ncol(x))*log(ncol(y))/n),
-lambda.min=ifelse(nrow(x)>ncol(x), 1e-3, 1e-2), logspaced.lambda = TRUE, linsolver.Gamma = c("primaldual", "simplex"),
-ntau = ifelse(is.null(tau),50,length(tau)), tau = NULL, tau.max=0.8, tau.min=ifelse(nrow(x)>ncol(x), 1e-3, 1e-2),
-perturb=FALSE, logspaced.tau=TRUE, linsolver.Omega=c("primaldual", "simplex"), pdtol = 1e-3, pdmaxiter = 50)
+\usage{ m.clime( x, y, lambda = NULL, 
+                nlambda = ifelse(is.null(lambda),10,length(lambda)), 
+                lambda.max = max(cov(x)*(1-1/nrow(x)))*
+                  max(cov(y)*(1-1/nrow(y)))*
+                  sqrt(4*log(ncol(x))*log(ncol(y))/n),
+                lambda.min=ifelse(nrow(x)>ncol(x), 1e-3, 1e-2), 
+                logspaced.lambda = TRUE, 
+                linsolver.Gamma = c("primaldual", "simplex"),
+                ntau = ifelse(is.null(tau),50,length(tau)), 
+                tau = NULL, tau.max=0.8, tau.min=ifelse(nrow(x)>ncol(x), 1e-3, 1e-2),
+                perturb=FALSE, logspaced.tau=TRUE, 
+                linsolver.Omega=c("primaldual", "simplex"), pdtol = 1e-3, pdmaxiter = 50)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -24,7 +32,7 @@ perturb=FALSE, logspaced.tau=TRUE, linsolver.Omega=c("primaldual", "simplex"), p
   \item{lambda.max}{Maximum value of program generated lambda.
     The default value is \eqn{\max(\sigma_X)\max(\sigma_Y)\sqrt(4(\log p+\log q)/n)}.}
   \item{lambda.min}{Minimum value of program generated lambda.
-    Default 1e-5(\eqn{n > p}) or 1e-3(\eqn{n < p}).
+    Default 1e-3 (\eqn{n > p}) or 1e-2 (\eqn{n < p}).
   }
   \item{logspaced.lambda}{Whether program generated lambda should be
     log-spaced or linear spaced.  Default TRUE.
@@ -38,7 +46,7 @@ perturb=FALSE, logspaced.tau=TRUE, linsolver.Omega=c("primaldual", "simplex"), p
   \item{tau.max}{Maximum value of program generated tau.
     Default 0.8.}
   \item{tau.min}{Minimum value of program generated tau.
-    Default 1e-4(\eqn{n > p}) or 1e-2(\eqn{n < p}).
+    Default 1e-3(\eqn{n > p}) or 1e-2(\eqn{n < p}).
   }
   \item{perturb}{Whether a perturbed Sigma should be used or
     the positive perturbation added if it is numerical.  Default FALSE.}

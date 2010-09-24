@@ -1,20 +1,20 @@
-\name{print.danziger} \alias{print.danziger}
+\name{print.dantzig} \alias{print.dantzig}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{print a danziger object}
+\title{print a dantzig object}
 \description{
-  Print a summary of the danziger object.
-} \usage{ \method{print}{danziger}(x,digits = max(3, getOption("digits")
+  Print a summary of the dantzig object.
+} \usage{ \method{print}{dantzig}(x,digits = max(3, getOption("digits")
 - 3), ... ) }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{danziger object.}
+  \item{x}{dantzig object.}
   \item{digits}{significant digits in printout.}
   \item{...}{additional print options.}
 }
 
 
 \details{
-  This call simply outlines the options used for computing a danziger object.
+  This call simply outlines the options used for computing a dantzig object.
 }
 
 \value{
@@ -34,8 +34,8 @@
 x <- matrix(rnorm(100,sd=0.5),10,10)
 Gamma0 <- rbind(toeplitz(c(5,0,0,0,0)),toeplitz(c(4,0,0,3,0)))
 y <- x%*%Gamma0 + matrix(rnorm(50),10,5)
-danziger.obj <- danziger(x,y,lambda=0.1)
-print(danziger.obj)
+dantzig.obj <- dantzig(x,y,lambda=0.1)
+print(dantzig.obj)
 }
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the

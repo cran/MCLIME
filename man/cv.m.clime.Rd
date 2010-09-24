@@ -84,7 +84,8 @@ mc.obj <- m.clime(x,y,lambda.min= 0.05,lambda.max=0.4,nlambda=5,
     tau.min=0.05,tau.max=0.4,ntau=5,linsolver.Gamma="simplex",
     linsolver.Omega="simplex")
 
-## Choose the best fist stage estimator of the regression coefficient using cross-validation.
+## Choose the best fist stage estimator of the regression 
+##   coefficient using cross-validation.
 cv.mc.obj <- cv.m.clime(mc.obj)
 lambdaopt <- cv.mc.obj$lambdaopt
 tauopt <- cv.mc.obj$tauopt

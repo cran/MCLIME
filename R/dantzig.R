@@ -1,4 +1,4 @@
-danziger <- function ( x, y, lambda = NULL,  
+dantzig <- function ( x, y, lambda = NULL,  
                        nlambda=ifelse(is.null(lambda),100,length(lambda)),
                        lambda.max= max(cov(x)*(1-1/nrow(x)))*max(cov(y)*(1-1/nrow(y)))*
                                    sqrt(4*log(ncol(x))*log(ncol(y))/n),
@@ -62,7 +62,7 @@ danziger <- function ( x, y, lambda = NULL,
     
   outlist <- list(Gammalist = Gammalist, 
                   x = x, y = y, lambda = lambda, lpfun = lpfun)
-  class(outlist) <- c("danziger")
+  class(outlist) <- c("dantzig")
   return(outlist)
 
 }

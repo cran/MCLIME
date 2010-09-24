@@ -10,7 +10,7 @@
 \description{
   Internal MCLIME functions
 }
-\usage{meanclime(danziger.obj,tau=NULL,ntau=ifelse(is.null(tau),100,length(tau)),
+\usage{meanclime(dantzig.obj,tau=NULL,ntau=ifelse(is.null(tau),100,length(tau)),
               tau.max=0.8,tau.min=ifelse(nrow(x)>ncol(x), 1e-3, 1e-2),
               perturb=FALSE,logspaced=TRUE,linsolver.Omega=c("primaldual", "simplex"),
               pdtol=1e-3, pdmaxiter=50)

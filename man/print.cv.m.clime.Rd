@@ -40,10 +40,11 @@ Gamma0 <- rbind(toeplitz(c(5,0,0,0,0)),toeplitz(c(4,0,0,3,0)))
 y <- x%*%Gamma0 + matrix(rnorm(50),10,5)
 
 ## Solve for the m.clime object.
-mc.obj <- m.clime(x,y,lambda.max=0.3,nlambda=5,tau.max=0.3,ntau=10,linsolver.Gamma="simplex",
-    linsolver.Omega="simplex")
+mc.obj <- m.clime(x,y,lambda.max=0.3,nlambda=5,tau.max=0.3,ntau=10,
+           linsolver.Gamma="simplex", linsolver.Omega="simplex")
 
-## Choose the best fist stage estimator of the regression coefficient using cross-validation.
+## Choose the best fist stage estimator of the 
+##   regression coefficient using cross-validation.
 cv.mc.obj <- cv.m.clime(mc.obj)
 
 ## Print the object.

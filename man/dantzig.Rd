@@ -1,5 +1,5 @@
-\name{danziger}
-\alias{danziger}
+\name{dantzig}
+\alias{dantzig}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{solve for the regression coefficients}
 \description{
@@ -7,9 +7,10 @@
   constrained by  a prespecified or default matrix lambda.
 }
 \usage{
-danziger(x, y, lambda = NULL,
+dantzig(x, y, lambda = NULL,
                        nlambda=ifelse(is.null(lambda),100,length(lambda)),
-                       lambda.max= max(cov(x)*(1-1/nrow(x)))*max(cov(y)*(1-1/nrow(y)))*
+                       lambda.max= max(cov(x)*(1-1/nrow(x)))*
+                                   max(cov(y)*(1-1/nrow(y)))*
                                    sqrt(4*log(ncol(x))*log(ncol(y))/n),
                        lambda.min=ifelse(nrow(x)>ncol(x), 1e-3, 1e-2),
                        logspaced=TRUE,
@@ -27,7 +28,7 @@ danziger(x, y, lambda = NULL,
     lambda.max will be generated.}
   \item{nlambda}{Number of values for program generated lambda.  Default 100.}
   \item{lambda.max}{Maximum value of program generated lambda.
-    The default value is \eqn{\max(\sigma_X)\max(\sigma_Y)\sqrt(4(\log p+\log q)/n)}.}
+    The default value is \eqn{\max(\sigma_X)\max(\sigma_Y)\sqrt{4(\log p+\log q)/n}}.}
   \item{lambda.min}{Minimum value of program generated lambda.
     Default 1e-5(\eqn{n > p}) or 1e-3(\eqn{n < p}).
   }
@@ -53,7 +54,7 @@ danziger(x, y, lambda = NULL,
 }
 
 \value{
-  An object with S3 class "danziger". You can also use it as a
+  An object with S3 class "dantzig". You can also use it as a
   regular R list with the following fields:
   \item{Gammalist}{List of estimated regression coefficient matrices for a grid of
     values for lambda.}
@@ -81,8 +82,8 @@ set.seed(922)
 x <- matrix(rnorm(1500,sd=0.5),50,30)
 Gamma0 <- matrix(rnorm(600),30,20)*matrix(rbinom(600,1,0.2),30,20)
 y <- x%*%Gamma0 + matrix(rnorm(1000),50,20)
-danziger.obj <- danziger(x,y,lambda=0.1,linsolver="simplex")
-danziger.obj
+dantzig.obj <- dantzig(x,y,lambda=0.1,linsolver="simplex")
+dantzig.obj
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
