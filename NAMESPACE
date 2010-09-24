@@ -1,0 +1,6 @@
+import("lpSolve")
+export("danziger", "m.clime", "cv.m.clime", "make.pd")
+S3method("print", "danziger")
+S3method("print", "m.clime")
+S3method("print", "cv.m.clime")
+
